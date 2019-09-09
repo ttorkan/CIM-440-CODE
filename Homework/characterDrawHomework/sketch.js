@@ -25,6 +25,7 @@ function draw() {
   fill("white");
   triangle(230, 220, 270, 220, 250, 200)
 
+  //mouth
   arc(250, 250, 200, 200, 0, PI);
 
   line(150, 250, 350, 250);
