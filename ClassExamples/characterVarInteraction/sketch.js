@@ -17,7 +17,8 @@ function setup() {
   console.log(point2);
 
   //creating a button
-  colorButton = createButton("Click to turn purple");//createButton is a function that is part of the p5.dom library, and creates an HTML tag. should not be in drawfunction
+  colorButton = createButton("Click to turn purple");//createButton is a function that is part of the
+                                          //p5.dom library, and creates an HTML tag. should not be in drawfunction
   colorButton.position(20, 20);
   colorButton.mousePressed(function(){
     faceColor = "purple";
@@ -29,7 +30,7 @@ function setup() {
 //FUNCTIONS WORK IN A LOOP!!!
 function draw() {
 
-  background("white");
+
   pointX = mouseX;
   pointY = mouseY;
 
