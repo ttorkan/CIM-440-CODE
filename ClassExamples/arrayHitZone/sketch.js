@@ -34,6 +34,7 @@ function draw() {
 }
 
 function mousePressed(){
+  //left button
   if(mouseX > hitX[0] && mouseX < hitX[0]+hitSize && mouseY > hitY[0] &&
      mouseY < hitY[0]+hitSize){
        console.log("button 0 ");
@@ -43,11 +44,14 @@ function mousePressed(){
        }
   }
 
+  //right button
   if(mouseX > hitX[1] && mouseX < hitX[1]+hitSize && mouseY > hitY[1] &&
      mouseY < hitY[1]+hitSize){
-       currentImage = currentImage - 1;
-       if(currentImage == 0){
-         currentImage = imageArray.length - 1;
+       console.log("button 1 ");
+       if(currentImage > 0){
+        currentImage = currentImage - 1;
+      }else{
+         currentImage = imageArray.length-1;
        }
      }
 }
