@@ -3,43 +3,61 @@ var banner;
 var body = 0;
 var letter = "";
 
+var showH = false;
+var showE = false;
+var showL = false;
+var showO = false;
+
+var won = false;
+
+
 function preload(){
   banner = loadImage('images/banner.png');
+  song = loadSound('images/win_music.mp3');
 }
 
 function setup() {
-  // put setup code here
+  // START OVER BUTTON
   createCanvas(600,600);
   button = createButton('Start Over');
   button.position(465,535);
   button.mousePressed(function(){
     body = 0;
-    hide(button);
+     showH = false;
+     showE = false;
+     showL = false;
+     showO = false;
+     won = false;
   });
 }
 
 function keyPressed(){
-  console.log(key);
-  console.log(answer[0]);
-  // if (key != answer[0]){
-  //   //IDK WHAT TO PUT HERE
-  //   body++;
-  //
-  // }
-  var checkLetter = false;
-  for (var i = 0; i < answer.length; i++){
-    if (key == answer[i]){
-      checkLetter = true;
-      letter = i;
+  if(won == false){
+    var checkLetter = false;
+    for (var i = 0; i < answer.length; i++){
+      if (key == answer[i]){
+        checkLetter = true;
+        letter = i;
+
+        if(key == "h"){
+          showH = true;
+        }
+        if(key == "e"){
+          showE = true;
+        }
+        if(key == "l"){
+          showL = true;
+        }
+        if(key == "o"){
+          showO = true;
+        }
+      }
+    }
+
+    if(checkLetter != true){
+      body++;
     }
   }
-
-  if(checkLetter == true){
-
-  }else{
-    body++;
-  }
-
 }
 
 function draw() {
@@ -95,9 +113,48 @@ function draw() {
     textSize(40);
     fill("red");
     text('GAME OVER', 35, 300);
-
+    fill("white");
+    circle(350, 250, 70);
+    strokeWeight(2);
+    circle(340, 240, 15); //left eye
+    circle(360, 240, 15); //right eye
+    fill("black");
+    circle(340, 240, 5); //left pupil
+    circle(360, 240, 5); //right pupil
+    noFill();
+    //  x     y   w   h
+    arc(350, 270, 35, 35, PI, TWO_PI);
   }
 
+  //LETTERS APPEARING
 
+    fill("black");
+    textSize(40);
+    text("!", 320, 545);
+    if(showH == true){
+      var textH = text("h", 30, 540);
+    }
+    if(showE == true){
+      text("e", 90, 540);
+    }
+    if(showL == true){
+      text("l", 155, 540);
+      text("l", 215, 540);
+    }
+    if(showO == true){
+      text("o", 270, 540);
+    }
+
+  if (showH == false){
+    //hide textH
+  }
+
+  //if all keys are pressed, you win!
+  if (showH == true && showE == true && showL == true && showO == true){
+    fill("red");
+    text('YOU WIN!', 35, 300);
+    won = true;
+      //for loop draw confetti
+    }
 
 }
