@@ -13,14 +13,15 @@ var won = false;
 
 function preload(){
   banner = loadImage('images/banner.png');
-  song = loadSound('images/win_music.mp3');
 }
 
 function setup() {
   // START OVER BUTTON
-  createCanvas(600,600);
+
+  var cnv = createCanvas(600,600);
+
   button = createButton('Start Over');
-  button.position(465,535);
+  //button.position(465,535);
   button.mousePressed(function(){
     body = 0;
      showH = false;
@@ -29,6 +30,22 @@ function setup() {
      showO = false;
      won = false;
   });
+
+
+    cnv.id("mycanvas");
+    button.id("button");
+
+    var container0 = createDiv();
+    container0.id("container0");
+    // # => designate an id, find an id = container0
+    //.html injects html or text into another html tag
+    //.style("css property", "value")
+    select("#container0").style("width", "400px");//setting width of container0
+    select("#container0").style("margin", "20px auto");//center our container, margin: 0 auto; 0 refers to the top and bottom spacing of our container, the auto refers to the left and right spacing of our container
+    //To center our container, you need to set a width and margin: 0 auto;
+
+    cnv.parent("#container0");
+    button.parent("#container0");
 }
 
 function keyPressed(){
@@ -68,17 +85,8 @@ function draw() {
   strokeWeight(3);
   fill("white");
 
-  //lines for letters
-  line(20, 550, 60, 550);
-  line(80, 550, 120, 550);
-  line(140, 550, 180, 550);
-  line(200, 550, 240, 550);
-  line(260, 550, 300, 550);
+  drawLines();
 
-  line(450, 500, 550, 500); //bottom hang
-  line(500, 150, 500, 500); //long hang
-  line(350, 150, 500, 150); //horiontal top like
-  line(350, 150, 350, 220); //connected to head
 
   if (body >= 1){
     circle(350, 250, 70); //head
@@ -157,4 +165,17 @@ function draw() {
       //for loop draw confetti
     }
 
+}
+
+function drawLines(){
+  line(20, 550, 60, 550);
+  line(80, 550, 120, 550);
+  line(140, 550, 180, 550);
+  line(200, 550, 240, 550);
+  line(260, 550, 300, 550);
+
+  line(450, 500, 550, 500); //bottom hang
+  line(500, 150, 500, 500); //long hang
+  line(350, 150, 500, 150); //horiontal top like
+  line(350, 150, 350, 220); //connected to head
 }
