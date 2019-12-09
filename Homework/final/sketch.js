@@ -5,7 +5,8 @@
 //reference opening/ closing circle https://editor.p5js.org/TimSherbert/sketches/ryC0T0caX
 //reference for bubbles https://editor.p5js.org/jd/sketches/rJ5MX7jPm
 //ocean sounds https://www.youtube.com/watch?v=wasGNXNdVgo&t=12s
-// rain sounds https://www.youtube.com/watch?v=HbVYuPogyP0
+//rain sounds https://www.youtube.com/watch?v=HbVYuPogyP0
+//bubble popping sound https://www.youtube.com/watch?v=FCDeiBFju6M
 
 
 var page = 0;
